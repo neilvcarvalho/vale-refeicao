@@ -1,0 +1,12 @@
+<%= form_tag ("/"), remote: true do %>
+	<%= label_tag :quanto_tem, "Quantia no VR:" %><br/>
+	<%= text_field_tag :quanto_tem %><br/>
+	<%= label_tag :data_entrada, "Data da próxima entrada:" %><br/>
+	<%= date_select :data_entrada, "" %><br/>
+	<%= label_tag :numero_feriados, "Número de feriados:" %><br/>
+	<%= text_field_tag :numero_feriados %><br/>
+	<%= submit_tag "Calcular" %>
+<% end %>
+
+<h2 id="quanto_pode">
+</h2>
