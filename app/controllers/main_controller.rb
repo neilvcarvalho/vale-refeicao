@@ -3,6 +3,8 @@ require 'open-uri'
 
 class MainController < ApplicationController
 	def index
+		logger.debug "#############"
+		logger.debug "work, bitch"
 		if params[:numero_vr]
 			@numero_vr = params[:numero_vr]
 			session["numero_cartao"] = @numero_vr
