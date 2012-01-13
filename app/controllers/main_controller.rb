@@ -9,6 +9,9 @@ class MainController < ApplicationController
 
 			doc = Nokogiri::HTML(open("http://www.cbss.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{@numero_vr}"))
 
+			logger.debug "###########################"
+			logger.debug doc.content
+
 			@ult_utilizacao = doc.css('table.consulta')[2].css('tr.rowTable td').first.content
 			@ult_recarga    = doc.css('table.consulta')[0].css('tr.rowTable')[2].css('td')[1].content
 			@ult_recarga    = Date.strptime(@ult_recarga.concat("/#{Time.now.year.to_s}"),"%d/%m/%Y") if @ult_recarga
