@@ -8,11 +8,15 @@
 				<%= text_field_tag :data_entrada %><br/>
 				<%= label_tag :numero_feriados, "Número de feriados:" %>
 				<%= number_field_tag :numero_feriados %><br/>
-				<%= submit_tag "Calcular", class: "btn btn-large btn-primary" %>
+				<%= submit_tag "Calcular", disable_with: "Calculando...", class: "btn btn-large btn-primary" %>
 			</fieldset>
 		<% end %>
 	</div>
 	<div class="span9">
-		<p id="quanto_pode"></p>
+		<div class="hero-unit" id="resultado">
+			<h2 id="quanto_pode"></h2>
+			<h2 id="saldo"></h2>
+			<p id="almoco"></p>
+		</div>
 	</div>
 </div>

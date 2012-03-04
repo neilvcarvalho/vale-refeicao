@@ -1,5 +1,6 @@
 jQuery ->
-	$("#quanto_pode").html("Você pode gastar <%=number_to_currency @valor%> por dia")
-	$("#quanto_pode").append("<br/>Seu saldo é <%= number_to_currency @quantia %>")
-	$("#quanto_pode").append('<br/>Você já almoçou hoje :)') if <%= @ja_almocou %>
-	$('#quanto_pode').append('<br/>Você ainda não almoçou hoje :(') unless <%= @ja_almocou %>
+	$("#resultado").show()
+	$("#quanto_pode").html("Você pode gastar <span class='valor'><%=number_to_currency @valor%></span> por dia")
+	$("#saldo").html("Seu saldo é <span class='valor'><%= number_to_currency @quantia %></span>")
+	$("#almoco").html('Você já almoçou hoje :)') if <%= @ja_almocou %>
+	$('#almoco').html('Você ainda não almoçou hoje :(') unless <%= @ja_almocou %>
