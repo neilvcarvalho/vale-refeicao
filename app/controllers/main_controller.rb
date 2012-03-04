@@ -5,7 +5,7 @@ class MainController < ApplicationController
 	def index
 		if params[:numero_vr]
 			@numero_vr = params[:numero_vr]
-			session["numero_cartao"] = @numero_vr
+			cookies["numero_cartao"] = @numero_vr
 
 			doc = Nokogiri::HTML(open("http://www.cbss.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{@numero_vr}"))
 
@@ -17,6 +17,7 @@ class MainController < ApplicationController
 			@prox_recarga   = Date.strptime(@prox_recarga.concat("/#{Time.now.year.to_s}"),"%d/%m/%Y") if !@prox_recarga.blank?
 			@quantia        = doc.css('td.corUm.fontWeightDois').last.content.split[1].gsub(",",".").to_f
 
+			@data_input = params[:data_entrada].present?
 			@entrada   = @prox_recarga unless @prox_recarga.blank?
 			@entrada ||= Date.strptime(params[:data_entrada], "%d/%m/%Y") rescue nil
 			@entrada ||= @ult_recarga + 1.month

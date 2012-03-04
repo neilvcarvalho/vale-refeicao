@@ -3,7 +3,7 @@
 		<%= form_tag ("/"), remote: true, class: "well form-vertical" do %>
 			<fieldset>
 				<%= label_tag :numero_vr, "Número do cartão*: " %>
-				<%= text_field_tag :numero_vr, session["numero_cartao"] %><br/>
+				<%= text_field_tag :numero_vr, cookies["numero_cartao"] %><br/>
 				<%= label_tag :data_entrada, "Data da próxima entrada:" %>
 				<%= text_field_tag :data_entrada %><br/>
 				<%= label_tag :numero_feriados, "Número de feriados:" %>
@@ -15,8 +15,9 @@
 	<div class="span9">
 		<div class="hero-unit" id="resultado">
 			<h2 id="quanto_pode"></h2>
-			<h2 id="saldo"></h2>
+			<h3 id="saldo"></h3>
 			<p id="almoco"></p>
+			<small id="data" class="fundo"></small>
 		</div>
 	</div>
 </div>
