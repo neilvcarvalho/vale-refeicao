@@ -1,12 +1,18 @@
-<%= form_tag ("/"), remote: true do %>
-	<%= label_tag :numero_vr, "Número do cartão*: " %>
-	<%= text_field_tag :numero_vr, session["numero_cartao"] %><br/>
-	<%= label_tag :data_entrada, "Data da próxima entrada:" %>
-	<%= select_date(@data_entrada, :prefix => 'data_entrada', prompt: "...") %><br/>
-	<%= label_tag :numero_feriados, "Número de feriados:" %>
-	<%= text_field_tag :numero_feriados %><br/>
-	<%= submit_tag "Calcular" %>
-<% end %>
-
-<h2 id="quanto_pode">
-</h2>
+<div class="row">
+	<div class="span3">
+		<%= form_tag ("/"), remote: true, class: "well form-vertical" do %>
+			<fieldset>
+				<%= label_tag :numero_vr, "Número do cartão*: " %>
+				<%= text_field_tag :numero_vr, session["numero_cartao"] %><br/>
+				<%= label_tag :data_entrada, "Data da próxima entrada:" %>
+				<%= text_field_tag :data_entrada %><br/>
+				<%= label_tag :numero_feriados, "Número de feriados:" %>
+				<%= number_field_tag :numero_feriados %><br/>
+				<%= submit_tag "Calcular", class: "btn btn-large btn-primary" %>
+			</fieldset>
+		<% end %>
+	</div>
+	<div class="span9">
+		<p id="quanto_pode"></p>
+	</div>
+</div>

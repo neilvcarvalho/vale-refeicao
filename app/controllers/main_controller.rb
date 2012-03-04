@@ -18,7 +18,7 @@ class MainController < ApplicationController
 			@quantia        = doc.css('td.corUm.fontWeightDois').last.content.split[1].gsub(",",".").to_f
 
 			@entrada   = @prox_recarga unless @prox_recarga.blank?
-			@entrada ||= Date.new(params[:data_entrada][:"(1i)"].to_i, params[:data_entrada][:"(2i)"].to_i, params[:data_entrada][:"(3i)"].to_i) rescue nil
+			@entrada ||= Date.strptime(params[:data_entrada], "%d/%m/%Y") rescue nil
 			@entrada ||= @ult_recarga + 1.month
 
 			# Se a última utilização foi hoje, ignorar o dia atual
