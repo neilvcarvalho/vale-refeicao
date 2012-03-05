@@ -3,11 +3,11 @@
 		<%= form_tag ("/"), remote: true, class: "well form-vertical" do %>
 			<fieldset>
 				<%= label_tag :numero_vr, "Número do cartão*" %>
-				<%= text_field_tag :numero_vr, cookies["numero_cartao"] %><br/>
+				<%= text_field_tag :numero_vr, cookies["numero_cartao"], class: "input-medium" %><br/>
 				<%= label_tag :data_entrada, "Data da próxima entrada" %>
-				<%= text_field_tag :data_entrada %><br/>
+				<%= text_field_tag :data_entrada, class: "input-medium" %><br/>
 				<%= label_tag :numero_feriados, "Número de feriados até o fim do mês" %>
-				<%= number_field_tag :numero_feriados %><br/>
+				<%= number_field_tag :numero_feriados, class: "input-medium" %><br/>
 				<%= submit_tag "Calcular", disable_with: "Calculando...", class: "btn btn-large btn-primary" %>
 			</fieldset>
 		<% end %>
