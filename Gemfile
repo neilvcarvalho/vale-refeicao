@@ -7,7 +7,6 @@ gem 'rails', '3.2.2'
 
 gem 'therubyracer'
 gem 'nokogiri'
-gem 'heroku'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
@@ -17,6 +16,8 @@ group :development do
 end
 
 group :production do
+	gem 'sqlite3'
+	#gem 'pg' #Heroku
 end
 # Gems used only for assets and not required
 # in production environments by default.
