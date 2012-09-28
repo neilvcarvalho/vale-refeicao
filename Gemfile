@@ -1,30 +1,58 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.2'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'therubyracer'
-gem 'nokogiri'
+# Assets
 gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
+
+# Autenticação e autorização
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'cancan'
+
+# Tools
 gem 'twitter-bootstrap-rails'
+gem 'nokogiri'
+gem 'haml'
 
-group :development do
-  gem 'sqlite3'
-end
+# Database
+gem 'pg'
+gem 'foreigner'
 
-group :production do
-	gem 'sqlite3'
-	#gem 'pg' #Heroku
-end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
 end
+
+# Testes
+group :development, :test do
+	gem 'growl', require: (RUBY_PLATFORM.include?('darwin') ? 'growl' : false)
+	gem 'rspec-rails', '~> 2.6'
+	gem 'guard-rspec'
+	gem 'machinist'
+	gem 'capybara-webkit'
+	gem 'shoulda-matchers'
+	gem 'spork'
+	gem 'guard-spork'
+	gem 'guard-cucumber'
+end
+
+group :test do
+	gem 'cucumber-rails', require: false
+	gem 'database_cleaner'
+	gem 'turn', :require => false
+end
+
+# Heroku
+gem 'heroku'
+gem 'thin'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -37,8 +65,3 @@ end
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-end
