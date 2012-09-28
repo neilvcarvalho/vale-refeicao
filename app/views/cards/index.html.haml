@@ -1,0 +1,14 @@
+%table.table.table-striped
+	%tr
+		%th Número do cartão
+		%th
+	- @cards.each do |card|
+		%tr
+			%td= card.number
+			%td
+				= link_to 'Ver', card
+				= link_to 'Editar', [:edit, card]
+				= link_to 'Excluir', card, method: :delete
+
+#form_actions
+	= link_to 'Novo cartão', [:new, :card], class: 'btn btn-primary'

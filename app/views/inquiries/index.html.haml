@@ -1,0 +1,20 @@
+.row
+	.span3.well
+		= form_tag 'inquiries', remote: true, class: "form-vertical" do
+			%fieldset
+				= label_tag :numero_vr, "Número do cartão*"
+				= text_field_tag :numero_vr, cookies["numero_cartao"], class: "span3"
+				%br
+				= label_tag :data_entrada, "Data da próxima entrada"
+				= text_field_tag :data_entrada, nil, class: "span3"
+				%br
+				= label_tag :numero_feriados, "Número de feriados até o fim do mês"
+				= number_field_tag :numero_feriados, nil, class: "span3"
+				%br
+				= submit_tag "Calcular", disable_with: "Calculando...", class: "btn btn-large btn-primary"
+	.span8
+		#resultado.hero-unit
+			%h2#quanto_pode"
+			%h3#saldo
+			%p#almoco
+			%small#data.fundo

@@ -1,0 +1,11 @@
+.hero-unit
+	%h2#quanto_pode
+		Você pode gastar
+		%span.valor= number_to_currency @card.busca.valor
+		por dia
+	%h3#saldo{data: { saldo: @card.busca.quantia }}
+		Seu saldo atual é
+		%span.valor= number_to_currency @card.busca.quantia
+	%small#data.fundo
+		A data estimada para a próxima entrada é
+		= @card.busca.entrada.strftime('%d/%m/%Y')

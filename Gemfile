@@ -18,10 +18,19 @@ gem 'cancan'
 gem 'twitter-bootstrap-rails'
 gem 'nokogiri'
 gem 'haml'
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+
+
 
 # Database
 gem 'pg'
 gem 'foreigner'
+
+# Melhorias nos controllers
+gem 'inherited_resources'
+gem 'responders'
+gem 'has_scope'
 
 # Gems used only for assets and not required
 # in production environments by default.

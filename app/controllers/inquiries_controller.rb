@@ -1,7 +1,6 @@
-require './lib/busca.rb'
+class InquiriesController < ApplicationController
 
-class MainController < ApplicationController
-	def index
+	def create
 		if params[:numero_vr]
 			begin
 				busca = VisaVale::Busca.new(params)
