@@ -5,7 +5,7 @@ require 'open-uri'
 
 module VisaVale
 	class Busca
-		attr_accessor :valor, :quantia, :data_input, :entrada, :utilizacoes
+		attr_accessor :valor, :quantia, :data_input, :entrada, :utilizacoes, :ja_almocou
 		def initialize(params)
 			numero_vr = params[:numero_vr]
 

@@ -1,3 +1,6 @@
+require 'visavale/utilizacao'
+require 'visavale/busca'
+
 class InquiriesController < ApplicationController
 
 	def create
