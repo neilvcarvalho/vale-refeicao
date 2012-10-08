@@ -26,12 +26,12 @@
 			<a href="#" class="brand">Cálculo Visa Vale</a>
 			<ul class='nav'>
 				<li><%= link_to 'Consulta direta', [:inquiries] %></li>
-				<% if current_user %>
-					<li><%= link_to 'Seus cartões', Card %></li>
-					<li><%= link_to "Sair de #{current_user.name}", signout_path, id: "sign_out" %></li>
-				<% else %>
-					<li><%= link_to "Login com Facebook", "/auth/facebook", id: "sign_in" %></li>
-				<% end %>
+					<% if current_user %>
+						<li><%= link_to 'Seus cartões', Card %></li>
+						<li><%= link_to "Logout de #{current_user.name}", signout_path, id: "sign_out" %></li>
+					<% else %>
+						<li><%= link_to "Login com Facebook", "/auth/facebook", id: "sign_in" %></li>
+					<% end %>
 			</ul>
 		</div>
 	</div>

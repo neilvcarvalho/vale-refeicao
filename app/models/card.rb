@@ -1,4 +1,5 @@
-require 'busca'
+require 'visavale/utilizacao'
+require 'visavale/busca'
 
 class Card < ActiveRecord::Base
   belongs_to :user
