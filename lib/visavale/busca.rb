@@ -9,7 +9,7 @@ module VisaVale
 		def initialize(params)
 			numero_vr = params[:numero_vr]
 
-			doc = Nokogiri::HTML(open("http://www.cbss.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{numero_vr}"))
+			doc = Nokogiri::HTML(open("http://www.cartoesbeneficio.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{numero_vr}"))
 
 			ult_utilizacao, ult_recarga, prox_recarga = nil
 			begin
@@ -30,7 +30,7 @@ module VisaVale
 			@entrada ||= ult_recarga + 1.month
 
 			# Se a última utilização foi hoje, ignorar o dia atual
-			@ja_almocou = utilizacoes.last.data == Time.now.strftime("%d/%m")
+			@ja_almocou = utilizacoes.last.data == Date.today
 			ignorar = 0
 			ignorar = 1 if @ja_almocou
 			ignorar += params[:numero_feriados].to_i
