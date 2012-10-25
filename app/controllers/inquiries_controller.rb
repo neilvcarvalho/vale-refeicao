@@ -1,12 +1,9 @@
-require 'visavale/utilizacao'
-require 'visavale/busca'
-
 class InquiriesController < ApplicationController
 
 	def create
 		if params[:numero_vr]
 			begin
-				busca = VisaVale::Busca.new(params)
+				busca = Busca.new(params)
 				@valor      = busca.valor
 				@quantia    = busca.quantia
 				@ja_almocou = busca.ja_almocou

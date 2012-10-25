@@ -70,6 +70,7 @@ GEM
     excon (0.16.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fakeweb (1.3.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     ffi (1.1.5)
@@ -252,6 +253,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
+  fakeweb
   foreigner
   formtastic
   formtastic-bootstrap

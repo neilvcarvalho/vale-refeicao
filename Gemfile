@@ -23,6 +23,7 @@ gem 'formtastic-bootstrap'
 
 
 
+
 # Database
 gem 'pg'
 gem 'foreigner'
@@ -50,6 +51,7 @@ group :development, :test do
 	gem 'spork'
 	gem 'guard-spork'
 	gem 'guard-cucumber'
+	gem 'fakeweb'
 end
 
 group :test do
