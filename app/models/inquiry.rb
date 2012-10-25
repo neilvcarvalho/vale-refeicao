@@ -1,13 +1,14 @@
 # encoding: utf-8
 require "nokogiri"
-require 'open-uri'
+require 'net/http'
+require 'uri'
 
 class Inquiry
 	attr_accessor :valor, :quantia, :data_input, :entrada, :utilizacoes, :ja_almocou
 	def initialize(params)
 		numero_vr = params[:numero_vr]
 
-		doc = Nokogiri::HTML(open("http://www.cartoesbeneficio.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{numero_vr}"))
+		doc = Nokogiri::HTML(Net::HTTP.get(URI.parse("http://www.cartoesbeneficio.com.br/inst/convivencia/SaldoExtrato.jsp?numeroCartao=#{numero_vr}&periodoSelecionado=4&origem=")))
 
 		ult_utilizacao, ult_recarga, prox_recarga = nil
 		begin
