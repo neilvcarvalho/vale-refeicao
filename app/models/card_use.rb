@@ -12,7 +12,7 @@ class CardUse
 	end
 
 	def date
-		Date.strptime(tr.css('td')[0], '%d/%m')
+		Date.strptime(tr.css('td')[0].content, '%d/%m')
 	end
 
 	def place
