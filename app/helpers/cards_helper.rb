@@ -8,8 +8,8 @@ module CardsHelper
 		uses = card.inquiry.card_uses
 		(card.inquiry.last_recharge..Date.today).map do |date|
 			{
-				date: date,
-				value: uses.find_all{ |use| use.date == date }.map(&:value).sum.to_f,
+				date: date.strftime('%d/%m'),
+				value: uses.find_all{ |use| use.date == date }.map(&:value).sum.to_f.round(2),
 				average: card.inquiry.possible_average
 			}
 		end

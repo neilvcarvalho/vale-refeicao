@@ -15,5 +15,7 @@
 		Consulta efetuada em
 		= @card.inquiry.time.strftime('%d/%m/%Y às %H:%M:%S')
 		= link_to '(atualizar)', request.path + "?cache=false"
+
+%h2 Uso do saldo durante o mês
 = cache("show_data_#{@card.number}") do
 	= grafico_gastos_diarios(@card)

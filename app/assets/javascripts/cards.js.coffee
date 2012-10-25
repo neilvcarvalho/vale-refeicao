@@ -9,4 +9,6 @@ jQuery ->
 			data: $('#gastos_diarios').data('gastos')
 			xkey: 'date'
 			ykeys: ['value', 'average']
-			labels: ['Quanto gastou', 'Quanto pode gastar']
+			labels: ['Quanto gastou', 'Quanto pode gastar'],
+			parseTime: false,
+			preUnits: 'R$ '
