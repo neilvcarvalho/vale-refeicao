@@ -3,12 +3,12 @@ class InquiriesController < ApplicationController
 	def create
 		if params[:numero_vr]
 			begin
-				busca = Busca.new(params)
-				@valor      = busca.valor
-				@quantia    = busca.quantia
-				@ja_almocou = busca.ja_almocou
-				@data_input = busca.data_input
-				@entrada    = busca.entrada
+				inquiry = Inquiry.new(params)
+				@valor      = inquiry.valor
+				@quantia    = inquiry.quantia
+				@ja_almocou = inquiry.ja_almocou
+				@data_input = inquiry.data_input
+				@entrada    = inquiry.entrada
 			rescue ArgumentError => error
 				@erro = error.message
 			end

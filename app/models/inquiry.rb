@@ -2,7 +2,7 @@
 require "nokogiri"
 require 'open-uri'
 
-class Busca
+class Inquiry
 	attr_accessor :valor, :quantia, :data_input, :entrada, :utilizacoes, :ja_almocou
 	def initialize(params)
 		numero_vr = params[:numero_vr]
@@ -11,7 +11,7 @@ class Busca
 
 		ult_utilizacao, ult_recarga, prox_recarga = nil
 		begin
-			utilizacoes  = doc.css('table.consulta')[2].css('tr.rowTable td').map{|c| Utilizacao.new(c) }
+			utilizacoes  = doc.css('table.consulta')[2].css('tr.rowTable td').map{|c| CardUse.new(c) }
 			ult_recarga  = doc.css('table.consulta')[0].css('tr.rowTable')[2].css('td')[1].content
 			ult_recarga  = Date.strptime(ult_recarga.concat("/#{Time.now.year.to_s}"),"%d/%m/%Y") if ult_recarga
 			ult_recarga  = ult_recarga - 1.year if ult_recarga && ult_recarga > Time.now.to_date

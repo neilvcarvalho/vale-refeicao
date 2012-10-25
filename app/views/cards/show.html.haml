@@ -1,11 +1,11 @@
 .hero-unit
 	%h2#quanto_pode
 		Você pode gastar
-		%span.valor= number_to_currency @card.busca.valor
+		%span.valor= number_to_currency @card.inquiry.valor
 		por dia
-	%h3#saldo{data: { saldo: @card.busca.quantia }}
+	%h3#saldo{data: { saldo: @card.inquiry.quantia }}
 		Seu saldo atual é
-		%span.valor= number_to_currency @card.busca.quantia
+		%span.valor= number_to_currency @card.inquiry.quantia
 	%small#data.fundo
 		A data estimada para a próxima entrada é
-		= @card.busca.entrada.strftime('%d/%m/%Y')
+		= @card.inquiry.entrada.strftime('%d/%m/%Y')

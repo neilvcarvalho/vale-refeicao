@@ -1,4 +1,4 @@
-class Utilizacao
+class CardUse
 
 	attr_accessor :data, :local, :valor
 
