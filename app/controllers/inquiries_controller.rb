@@ -4,11 +4,11 @@ class InquiriesController < ApplicationController
 		if params[:numero_vr]
 			begin
 				inquiry = Inquiry.new(params)
-				@valor      = inquiry.valor
-				@quantia    = inquiry.quantia
-				@ja_almocou = inquiry.ja_almocou
+				@valor      = inquiry.possible_average
+				@quantia    = inquiry.balance
+				@ja_almocou = inquiry.used_today?
 				@data_input = inquiry.data_input
-				@entrada    = inquiry.entrada
+				@entrada    = inquiry.possible_recharge
 			rescue ArgumentError => error
 				@erro = error.message
 			end

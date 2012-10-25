@@ -20,6 +20,7 @@ gem 'nokogiri'
 gem 'haml'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem 'quiet_assets', group: :development
 
 
 

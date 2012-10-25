@@ -1,11 +1,19 @@
+
 .hero-unit
 	%h2#quanto_pode
 		Você pode gastar
-		%span.valor= number_to_currency @card.inquiry.valor
+		%span.valor= number_to_currency @card.inquiry.possible_average
 		por dia
-	%h3#saldo{data: { saldo: @card.inquiry.quantia }}
+	%h3#saldo{data: { saldo: @card.inquiry.balance }}
 		Seu saldo atual é
-		%span.valor= number_to_currency @card.inquiry.quantia
+		%span.valor= number_to_currency @card.inquiry.balance
 	%small#data.fundo
 		A data estimada para a próxima entrada é
-		= @card.inquiry.entrada.strftime('%d/%m/%Y')
+		= @card.inquiry.possible_recharge.strftime('%d/%m/%Y')
+	%p
+	%small
+		Consulta efetuada em
+		= @card.inquiry.time.strftime('%d/%m/%Y às %H:%M:%S')
+		= link_to '(atualizar)', request.path + "?cache=false"
+= cache("show_data_#{@card.number}") do
+	= grafico_gastos_diarios(@card)
